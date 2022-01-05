@@ -31,10 +31,27 @@ const teamMembers = [
     name: 'Kelly',
     profession: 'Designer',
     yrsExperience: 3
+  },
+  {
+    name: 'Mark',
+    profession: 'Manager',
+    yrsExperience: 10
   }
 ];
 
 // Totaling a specific object property
-
+let totalExpierence = teamMembers.reduce((acc, curr) => acc + curr.yrsExperience, 0);
+console.log(totalExpierence);
 
 // Grouping by a property, and totaling it too
+let expierenceByProfession = teamMembers.reduce((acc, curr) => {
+  let key = curr.profession;
+  if(!acc[key]) {
+    acc[key] =curr.yrsExperience;
+  } else {
+    acc[key] += curr.yrsExperience;
+  }
+  return acc;
+}, {});
+
+console.log(expierenceByProfession);
